@@ -1,0 +1,203 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 13, 20, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.objectModal {
+  width: 420px;
+  max-width: 100%;
+  padding: 22px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+  animation: modalShow 0.22s ease forwards;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.modalHeader p {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.modalCloseBtn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.objectRadioList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.objectRadioItem {
+  min-height: 58px;
+  padding: 12px 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.objectRadioItem:hover {
+  border-color: #f97316;
+  background: #fff7ed;
+}
+
+.objectRadioItem.selected {
+  border-color: #f97316;
+  background: #fff7ed;
+  box-shadow: 0 8px 22px rgba(249, 115, 22, 0.12);
+}
+
+.objectRadioItem input {
+  display: none;
+}
+
+.customRadio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #9ca3af;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.objectRadioItem.selected .customRadio {
+  border-color: #f97316;
+}
+
+.objectRadioItem.selected .customRadio::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #f97316;
+}
+
+.radioText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.radioText strong {
+  color: #111827;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.radioText small {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cancelObjectBtn,
+.addSelectedBtn {
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelObjectBtn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cancelObjectBtn:hover {
+  background: #e5e7eb;
+}
+
+.addSelectedBtn {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(22, 163, 74, 0.28);
+}
+
+.addSelectedBtn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #166534, #22c55e);
+}
+
+@keyframes modalShow {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 520px) {
+  .objectModal {
+    padding: 18px;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+
+  .cancelObjectBtn,
+  .addSelectedBtn {
+    width: 100%;
+  }
+}

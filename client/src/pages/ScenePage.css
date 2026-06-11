@@ -1,0 +1,323 @@
+.scenePage {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(249, 115, 22, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 75%, rgba(37, 99, 235, 0.18), transparent 30%),
+    linear-gradient(135deg, #0f172a, #1e293b);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+.sceneCanvasBox {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.roomSceneWrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.roomSceneWrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  cursor: grab;
+}
+
+.roomSceneWrapper canvas:active {
+  cursor: grabbing;
+}
+
+.sceneLoading {
+  padding: 12px 18px;
+  border-radius: 14px;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.9);
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+}
+
+.sceneTopBar {
+  position: fixed;
+  top: 34px;
+  left: 34px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px;
+  border-radius: 18px;
+  background: rgba(8, 13, 20, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25);
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.addObjectBtn,
+.saveBtn,
+.signOutBtn {
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 850;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.22s ease;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.btnIcon {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.addObjectBtn {
+  background: linear-gradient(135deg, #dc2626, #f43f5e);
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.3);
+}
+
+.addObjectBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(220, 38, 38, 0.42);
+  background: linear-gradient(135deg, #b91c1c, #fb7185);
+}
+
+.saveBtn {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  box-shadow: 0 12px 28px rgba(22, 163, 74, 0.3);
+}
+
+.saveBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(22, 163, 74, 0.42);
+  background: linear-gradient(135deg, #166534, #22c55e);
+}
+
+.signOutContainer {
+  position: fixed;
+  top: 34px;
+  right: 34px;
+  z-index: 60;
+}
+
+.signOutBtn {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.3);
+}
+
+.signOutBtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #b91c1c, #f87171);
+  box-shadow: 0 18px 36px rgba(220, 38, 38, 0.42);
+}
+
+.sceneHelpBox {
+  position: fixed;
+  left: 34px;
+  bottom: 34px;
+  z-index: 55;
+  width: 315px;
+  padding: 15px 17px;
+  border-radius: 20px;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.28);
+}
+
+.sceneHelpBox strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.sceneHelpBox span {
+  display: block;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 650;
+}
+
+.sceneStatus {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 80;
+  min-width: 280px;
+  max-width: 520px;
+  padding: 14px 22px;
+  border-radius: 16px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 850;
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+  animation: statusShow 0.25s ease forwards;
+}
+
+.deleteDropZone {
+  position: fixed;
+  right: 34px;
+  bottom: 34px;
+  z-index: 90;
+  min-width: 250px;
+  height: 84px;
+  padding: 0 18px;
+  border-radius: 24px;
+  background: rgba(10, 14, 22, 0.8);
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px) scale(0.92);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+}
+
+.deleteDropZone.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.deleteDropZone.active:hover {
+  background: rgba(220, 38, 38, 0.92);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 28px 70px rgba(220, 38, 38, 0.48);
+}
+
+.deleteIconBox {
+  width: 50px;
+  height: 50px;
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.17);
+  color: #ff5b5b;
+  font-size: 23px;
+  transition: all 0.25s ease;
+}
+
+.deleteDropZone.active:hover .deleteIconBox {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.deleteDropZone strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.1;
+  font-weight: 950;
+}
+
+.deleteDropZone span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.deleteDropZone.active:hover span {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@keyframes statusShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .sceneHelpBox {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .sceneTopBar {
+    top: 22px;
+    left: 18px;
+  }
+
+  .signOutContainer {
+    top: 22px;
+    right: 18px;
+  }
+
+  .addObjectBtn,
+  .saveBtn,
+  .signOutBtn {
+    height: 42px;
+    padding: 0 13px;
+    font-size: 14px;
+  }
+
+  .deleteDropZone {
+    right: 18px;
+    bottom: 22px;
+    min-width: 220px;
+    height: 74px;
+  }
+
+  .sceneStatus {
+    top: 84px;
+    min-width: 240px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 520px) {
+  .sceneTopBar {
+    left: 12px;
+    right: 12px;
+    justify-content: center;
+  }
+
+  .signOutContainer {
+    top: 82px;
+    right: 12px;
+  }
+
+  .deleteDropZone {
+    left: 12px;
+    right: 12px;
+    bottom: 18px;
+    width: auto;
+  }
+}
